@@ -4,17 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyBuddy Task Manager</title>
+    <style>
+        /* UI IMPROVEMENTS */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+        
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 { text-align: center; color: #2c3e50; }
+
+        /* Input Group Styling */
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"] {
+            flex: 2;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* The new Time Input */
+        input[type="datetime-local"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button#addTaskBtn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button#addTaskBtn:hover { background-color: #219150; }
+
+        /* Task List Styling */
+        ul { list-style: none; padding: 0; }
+
+        li {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 15px;
+            display: flex;
+            flex-direction: column; /* Stack text and timer */
+            gap: 5px;
+        }
+
+        li:first-child { border-top: 1px solid #eee; }
+
+        .task-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-text { font-size: 1.1rem; font-weight: 500; }
+
+        .timer {
+            font-size: 0.85rem;
+            color: #e67e22; /* Orange for time */
+            font-weight: bold;
+        }
+
+        .expired { color: #c0392b; } /* Red for expired */
+
+        .delete-btn {
+            background-color: #ff7675;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>My Task Manager</h1>
-    
-    <div>
-        <input type="text" id="taskInput" placeholder="Enter a new task...">
-        <button id="addTaskBtn">Add Task</button>
-    </div>
 
-    <ul>
-        </ul>
+    <div class="container">
+        <h1>StudyBuddy Manager</h1>
+        
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="What do you need to do?">
+            <input type="datetime-local" id="timeInput">
+            <button id="addTaskBtn">Add</button>
+        </div>
+
+        <ul id="taskList">
+            </ul>
+    </div>
 
     <script src="app.js"></script>
 </body>
